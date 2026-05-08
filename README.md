@@ -8,7 +8,7 @@ To identify "Linear Conserved" vOTUs the user is in need of 2 tabular file:
 1) a tabular file with the following UViGs metatadata [uvig, votu, lenght, uvig_topology, checkv_quality, viral_confidence, taxon_oid (sample identifier)].
 2) a text file (i.e. representative.txt), contaning the uvig name of each votu representative.
 
-To recover "New Linear Complete" vOTUs the user is in need of a third tabular file:
+To recover "New Linear Complete" vOTUs the user is in need of a third tabular file:  
 3) a tabular file termini_25bp.tsv with the following data [uvig,start_25bp,end_25bp]
 
 OPTION 1 (via seqkit):
@@ -44,7 +44,7 @@ df = pd.DataFrame(records)
 df.to_csv("termini_25bp.tsv", sep="\t", index=False)
 ```
 
-For any other code/analysis inquiries, please open a github issue. Note: most of these scripts were written for Python 3.
+For any other code/analysis inquiries, please open a github issue. Note: most of these scripts were written for Python 3.  
 To retrieve metadata necessary to run the analysis, please follow Methods described in metaVR database [https://doi.org/10.1093/nar/gkaf1283]
 
 If this code is useful, please cite: TBD

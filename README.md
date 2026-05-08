@@ -8,7 +8,16 @@ To identify "Linear Conserved" vOTUs the user is in need of 2 tabular file:
 1) a tabular file with the following UViGs metatadata [uvig, votu, lenght, uvig_topology, checkv_quality, viral_confidence, taxon_oid (sample identifier)].
 2) a text file (i.e. representative.txt), contaning the uvig name of each votu representative.
 
-To recover "New Linear Complete" vOTUs the user is in need of a third tabular file:  
+OPTION 1 (via seqkit):
+```
+seqkit seq -n vOTUs_representatives.fasta > representative.txt
+```
+OPTION 2 (via grep):
+```
+grep "^>" input.fasta | sed 's/^>//' > representative.txt
+```
+
+To recover "New Linear Complete" vOTUs the user is in need of a third tabular file: 
 3) a tabular file termini_25bp.tsv with the following data [uvig,start_25bp,end_25bp]
 
 OPTION 1 (via seqkit):

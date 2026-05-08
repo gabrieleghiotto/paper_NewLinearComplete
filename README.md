@@ -2,6 +2,7 @@
 This repository tracks the notes about the termini-conservation approach applied to recover new linear complete viral genomes.
 ### Data availability
 See: https://www.meta-virome.org/
+
 ### Code availability
 
 To identify "Linear Conserved" vOTUs the user is in need of 2 tabular file:

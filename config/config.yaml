@@ -1,0 +1,156 @@
+# Viral Linear Complete Genomes Analysis - Configuration File
+# Update paths to match your local environment
+
+# ============================================================================
+# INPUT DATA PATHS
+# ============================================================================
+data:
+  # Main metadata file from UVIG database
+  input_metadata: "/Users/Gabriele/Documents/POSTDOC/UVIG_TABLE_metaVR_filtered.tsv"
+
+  # Representative UViG identifiers (one per vOTU)
+  header_repr: "/Users/Gabriele/Documents/POSTDOC/header_repr.txt"
+
+  # Gene annotation data in Parquet format
+  genomad_genes: "/Users/Gabriele/Documents/POSTDOC/linear_complete/genomad_genes.parquet"
+
+  # UViGs to exclude (e.g., fragments that fall into longer sequences)
+  exclude_nested: "/Users/Gabriele/Documents/POSTDOC/linear_complete/unique_qseqids_ND_falling_in_longer_vOTUs.txt"
+
+  # Conserved terminal sequences (start and end 25bp)
+  terminal_sequences: "/Users/Gabriele/Documents/POSTDOC/linear_complete/info_ends/info_ends_25bp.tsv"
+
+  # Ecosystem/habitat metadata for linking vOTUs to environmental sources
+  ecosystem_metadata: "/Users/Gabriele/Documents/POSTDOC/linear_complete/Source_dataset_metadata.tsv"
+
+  # Protein domain annotations (PFAM results)
+  pfam_annotations: "/Users/Gabriele/Documents/POSTDOC/linear_complete/pfam_results.txt"
+
+# ============================================================================
+# OUTPUT PATHS
+# ============================================================================
+output:
+  # Main results directory
+  results_dir: "./results"
+
+  # Subdirectories
+  figures_dir: "./results/figures"
+  tables_dir: "./results/tables"
+  filtered_uvigs_dir: "./results/filtered_uvigs"
+
+# ============================================================================
+# FILTERING PARAMETERS
+# ============================================================================
+filtering:
+  # Maximum allowed absolute length difference from representative (bp)
+  # Default: 25bp (very strict) or 100bp (more lenient)
+  max_bp_difference: 25
+
+  # Minimum number of UViGs per vOTU to retain
+  # Helps ensure statistical power for within-vOTU comparisons
+  min_uvigs_per_votu: 3
+
+  # Minimum number of unique samples with valid terminal sequences
+  min_unique_samples: 3
+
+  # Maximum length difference between longest and shortest UViG in a vOTU
+  # Used to detect potential cross-contamination (default: 1000 bp)
+  max_length_delta_bp: 1000
+
+# ============================================================================
+# TERMINAL SEQUENCE ANALYSIS
+# ============================================================================
+terminal_analysis:
+  # Column names for start/end sequences
+  start_column: "start_25bp"
+  end_column: "end_25bp"
+
+  # Maximum number of mismatches to consider a UViG as "passing"
+  # Default: 3 mismatches allowed per terminus
+  max_mismatches: 3
+
+# ============================================================================
+# TAXONOMY CLASSIFICATION
+# ============================================================================
+taxonomy:
+  # Minimum sequence length by ICTV viral class (in bp)
+  # Based on class-specific requirements from viral reference databases
+  min_length_dict:
+    Alsuviricetes: 1000
+    Amabiliviricetes: 2000
+    Arfiviricetes: 1000
+    Bunyaviricetes: 1700
+    Caudoviricetes: 12275
+    Chrymotiviricetes: 2700
+    Duplopiviricetes: 1400
+    Faserviricetes: 4500
+    Howeltoviricetes: 2400
+    Huolimaviricetes: 1000
+    Laserviricetes: 16000
+    Leviviricetes: 3000
+    Magsaviricetes: 400
+    Malgrandaviricetes: 4400
+    Maveriviricetes: 14500
+    Megaviricetes: 70000
+    Miaviricetes: 900
+    Milneviricetes: 1400
+    Monjiviricetes: 8500
+    Naldaviricetes: 80000
+    Papovaviricetes: 5000
+    Pisoniviricetes: 900
+    Pokkesviricetes: 128000
+    Polintoviricetes: 1200
+    Quintoviricetes: 4000
+    Repensiviricetes: 2000
+    Resentoviricetes: 200
+    Revtraviricetes: 3200
+    Stelpaviricetes: 2300
+    Tectiliviricetes: 8700
+    Tokiviricetes: 15900
+    Tolucaviricetes: 1400
+    Vidaverviricetes: 2300
+
+# ============================================================================
+# QUALITY FILTERS
+# ============================================================================
+quality:
+  # Minimum genomad score (0-1, higher = more likely viral)
+  min_genomad_score: 0.7
+
+  # Only include sequences from these sources
+  # Common values: Metagenome, Metatranscriptome, Isolate, RefSeq
+  allowed_sources:
+    - Metagenome
+    - Metatranscriptome
+    - Isolate
+
+# ============================================================================
+# VISUALIZATION
+# ============================================================================
+visualization:
+  # Figure resolution (dpi)
+  dpi: 300
+
+  # Output format(s) for figures
+  formats:
+    - "svg"
+    - "png"
+
+  # Color scheme
+  colors:
+    circular_complete: "steelblue"
+    linear_complete: "seagreen"
+    new_linear_complete: "goldenrod"
+    dna_genomes: "steelblue"
+    rna_genomes: "coral"
+    unclassified: "lightgray"
+
+# ============================================================================
+# LOGGING
+# ============================================================================
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+
+  # Log file path (optional)
+  file: "./results/analysis.log"

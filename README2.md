@@ -16,14 +16,6 @@ This project provides tools to:
 
 The pipeline is designed for the metaVR dataset but is adaptable to any viral metadata in TSV format.
 
-## Features
-
-✨ **Modular Architecture** - Functions split into logical modules for reusability
-✨ **Configuration-Driven** - YAML config files instead of hardcoded parameters
-✨ **Reproducible** - Deterministic results with documented algorithms
-✨ **Well-Documented** - Docstrings and type hints throughout
-✨ **Vectorized** - Fast pandas/numpy operations for large datasets
-
 ## Installation
 
 ### Requirements
@@ -212,16 +204,6 @@ print(df_filtered['class'].value_counts().head(10))
 - `Fig4_5_taxonomy.svg` - Taxonomy-based breakdown
 - `Fig_SX_length_boxplots.svg` - Genome length by class
 
-## Performance
-
-Pipeline performance on full metaVR dataset (~12.7M records):
-- Data loading: ~5 seconds
-- Filtering & taxonomy: ~30 seconds
-- Terminal analysis: ~2-3 minutes
-- Visualization: ~1 minute
-
-Total runtime: ~5-10 minutes (single core, 8GB RAM)
-
 ## Methods
 
 ### Filtering Strategy
@@ -262,36 +244,9 @@ conda-lock install
 Contributions welcome! Please:
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+2. Create a feature branch
 3. Make changes with tests
 4. Submit pull request
-
-## Citation
-
-If you use this pipeline, please cite:
-
-```bibtex
-@software{viral_complete_genomes_2024,
-  title={Viral Linear Complete Genomes Analysis Pipeline},
-  author={Your Name},
-  url={https://github.com/yourusername/viral-complete-genomes},
-  year={2024}
-}
-```
-
-## License
-
-This project is licensed under the MIT License - see LICENSE file for details.
-
-## References
-
-- [Viral Metadata Resource (metaVR)](https://zenodo.org/...)
-- [ICTV Master Species List](https://ictv.global/)
-- [Viral Sequence Classification](https://genomad.readthedocs.io/)
-
-## Contact
-
-Questions or issues? Open an issue on [GitHub](https://github.com/yourusername/viral-complete-genomes/issues)
 
 ---
 

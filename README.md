@@ -55,7 +55,7 @@ df.to_csv("termini_25bp.tsv", sep="\t", index=False)
 ```
 
 For any other code/analysis inquiries, please open a github issue. Note: most of these scripts were written for Python 3.  
-To retrieve metadata necessary to run the analysis, please follow Methods described in metaVR database [https://doi.org/10.1093/nar/gkaf1283]
+To retrieve metadata necessary to run the analysis, please follow Methods described in metaVR database [https://doi.org/10.1093/nar/gkaf1283]  
 To retrieve detailed info about the worflow, please read the dedicated documentation at [https://github.com/gabrieleghiotto/paper_NewLinearComplete/blob/main/README2.md]
 
 If this code is useful, please cite: TBD
